@@ -1,0 +1,9 @@
+numpy==2.2.5
+pandas==2.3.3
+scikit-learn==1.7.2
+joblib==1.5.3
+optuna==4.6.0
+matplotlib==3.10.8
+
+# Deep learning framework (GPU, CUDA 12.8) -- required at runtime to load ESM2 embeddings
+# torch==2.9.1+cu128
