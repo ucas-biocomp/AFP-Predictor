@@ -13,11 +13,27 @@ Ensemble of 5 MLP base models trained on ESM2 embeddings for antifreeze protein 
 ## Files
 
 - `code/ESM_train_model_MLP.ipynb` — training + evaluation notebook
+- `code/predict.py` — predict AFP/non-AFP from ESM2 embeddings
 - `model/mlp_ensemble_models.pkl` — trained model bundle
 
 ## Requirements
 
-Install with `pip install -r requirements.txt`.
+```bash
+pip install -r requirements.txt
+pip install torch==2.9.1
+```
+
+## Usage
+
+1. Extract ESM2 embeddings for your proteins (see below).
+2. Predict:
+
+```bash
+python code/predict.py /path/to/embedding.pt    # single file
+python code/predict.py /path/to/embedding_dir   # folder of .pt files
+```
+
+Prints `AFP` or `non-AFP` for each protein.
 
 ## ESM2 Embeddings
 
@@ -30,4 +46,4 @@ python /path/to/esm-main/scripts/extract.py esm2_t33_650M_UR50D \
     --repr_layers 0 32 33 --include mean
 ```
 
-This writes `.pt` files containing `mean_representations`, which the notebook loads.
+This writes one `.pt` per protein, ready for `predict.py`.
