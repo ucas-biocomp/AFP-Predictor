@@ -65,7 +65,7 @@ Prints `AFP` or `non-AFP` for each protein.
 - **Input**: ESM2 `mean_representations`, layer 33 — one 1280-dim vector per protein
 
 | Model | Activation | Solver | Learning rate |
-|---:|:---:|:---:|---:|---:|
+|---:|:---:|:---:|---:|
 | 1 | tanh | sgd | 5.55e-04 |
 | 2 | relu | adam | 8.73e-04 |
 | 3 | relu | adam | 2.06e-04 |
