@@ -47,3 +47,7 @@ python /path/to/esm-main/scripts/extract.py esm2_t33_650M_UR50D \
 ```
 
 This writes one `.pt` per protein, ready for `predict.py`.
+
+## Citation
+
+If this repository supports a publication or thesis, cite that work and include its bibliographic details here when publicly available.
