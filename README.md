@@ -32,8 +32,6 @@ AFP_Ensemble_MLP_ESM2_20260408_173024/
 
 ## Installation
 
-Python 3.10 or 3.11 is recommended.
-
 ```bash
 git clone https://github.com/ucas-biocomp/AFP-Predictor.git
 cd AFP-Predictor
