@@ -30,9 +30,15 @@ AFP_Ensemble_MLP_ESM2_20260408_173024/
     └── mlp_ensemble_models.pkl      # trained model bundle
 ```
 
-## Requirements
+## Installation
+
+Python 3.10 or 3.11 is recommended.
 
 ```bash
+git clone https://github.com/ucas-biocomp/AFP-Predictor.git
+cd AFP-Predictor
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 pip install torch==2.9.1
 ```
