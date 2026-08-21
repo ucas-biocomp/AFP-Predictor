@@ -1,6 +1,6 @@
 # AFP-Predictor
 
-Ensemble of 5 MLP base models trained on ESM2 embeddings for antifreeze protein (AFP) prediction.
+Antifreeze protein (AFP) prediction using ESM2 embeddings and multilayer perceptron (MLP) models.
 
 ## Method
 
