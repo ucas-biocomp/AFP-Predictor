@@ -45,6 +45,10 @@ pip install torch==2.9.1
 
 ## Usage
 
+### Training
+Open and run `code/ESM_train_model_MLP.ipynb` to train and evaluate the models.
+
+### Prediction
 1. Extract ESM2 embeddings for your proteins (see below).
 2. Predict:
 
@@ -54,6 +58,19 @@ python code/predict.py /path/to/embedding_dir   # folder of .pt files
 ```
 
 Prints `AFP` or `non-AFP` for each protein.
+
+## Model Detail
+
+- **Models**: 5 MLP classifiers, probability-averaged ensemble
+- **Input**: ESM2 `mean_representations`, layer 33 — one 1280-dim vector per protein
+
+| Model | Activation | Solver | Learning rate |
+|---:|:---:|:---:|---:|---:|
+| 1 | tanh | sgd | 5.55e-04 |
+| 2 | relu | adam | 8.73e-04 |
+| 3 | relu | adam | 2.06e-04 |
+| 4 | relu | sgd | 2.89e-03 |
+| 5 | relu | adam | 6.86e-04 |
 
 ## ESM2 Embeddings
 
