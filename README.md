@@ -10,11 +10,25 @@ Ensemble of 5 MLP base models trained on ESM2 embeddings for antifreeze protein 
 - Hyperparameters: tuned with Optuna
 - Evaluation: internal test set (28+28) and external test set (164+164)
 
-## Files
+## Project Structure
 
-- `code/ESM_train_model_MLP.ipynb` — training + evaluation notebook
-- `code/predict.py` — predict AFP/non-AFP from ESM2 embeddings
-- `model/mlp_ensemble_models.pkl` — trained model bundle
+```text
+AFP_Ensemble_MLP_ESM2_20260408_173024/
+├── code/
+│   ├── ESM_train_model_MLP.ipynb    # training + evaluation notebook
+│   ├── predict.py                   # predict AFP/non-AFP from ESM2 embeddings
+│   ├── README.md
+│   ├── requirements.txt
+│   └── LICENSE
+├── data/
+│   ├── negative_653.csv             # negative set
+│   ├── positive_153.csv             # positive set
+│   ├── test_negative_164.csv        # test negative set
+│   ├── test_positive_164.csv        # test positive set
+│   └── test_positive_6.csv          # protein-level test positive set
+└── model/
+    └── mlp_ensemble_models.pkl      # trained model bundle
+```
 
 ## Requirements
 
