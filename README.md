@@ -85,3 +85,6 @@ This writes one `.pt` per protein, ready for `predict.py`.
 
 ## Citation
 
+If you use AFP-R in your research, please cite:
+
+Liu, W., Zhang, Y., Xiu, D., Liu, Y., Wang, T., Chai, X., Qu, H., Min, Y., & Zhang, Z. (2026). AFP-R: An Open Resource Dedicated to Antifreeze Proteins. bioRxiv. https://doi.org/10.64898/2026.08.21.746139
