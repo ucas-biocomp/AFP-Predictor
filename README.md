@@ -40,7 +40,7 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 pip install torch==2.9.1
 ```
-
+On Windows, activate the environment with ​.venv\Scripts\activate​.
 ## Usage
 
 ### Training
