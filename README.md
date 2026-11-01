@@ -1,11 +1,11 @@
 # AFP-Predictor
 
-Antifreeze protein (AFP) prediction using ESM2 embeddings and multilayer perceptron (MLP) models.
+Antifreeze protein (AFP) prediction using ESM2 embeddings and support vector machine (SVM) models.
 
 ## Method
 
 - Features: ESM2 `mean_representations`, layer 33
-- Base models: 5 MLP classifiers, each on its own fold split
+- Base models: 5 SVM classifiers, each on its own fold split
 - Ensemble: probability averaging
 - Hyperparameters: tuned with Optuna
 - Evaluation: internal test set (28+28) and external test set (164+164)
