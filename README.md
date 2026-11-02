@@ -68,9 +68,7 @@ CSV columns: id, score, threshold, and prediction.
 python code/train.py --feature implicit --features features.csv --splits splits.csv
 ```
 
-`features.csv` needs `sample_id`, `label` (0/1) and the numeric feature
-columns; `splits.csv` needs `sample_id`, `base_model` (1–5) and `role`
-(`Train`/`Validation`). The output goes to `model/implicit/SVM/model_bundle.joblib`.
+Training requires a precomputed feature CSV and a five-fold split manifest. The feature CSV must contain `sample_id`, binary `label` (0 for non-AFP and 1 for AFP), and numeric feature columns. The split manifest must contain `sample_id`, `base_model` (1–5), and `role` (`Train` or `Validation`). IDs must match between the two files.
 
 ## Model Detail
 
