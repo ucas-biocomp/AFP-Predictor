@@ -5,10 +5,10 @@ five support vector machine (SVM) classifiers.
 
 ## Method
 
-- **Features**: ESM-2 (`esm2_t33_650M_UR50D`) layer-33 mean embedding, one 1280-dim vector per protein
+- **Features**: ESM-2 (`esm2_t33_650M_UR50D`) layer-33 mean embedding (1280 dimensions per protein)
 - **Base models**: 5 `StandardScaler` + `SVC` pipelines, each trained on its own fold split
 - **Ensemble**: arithmetic mean of the five positive-class probabilities
-- **Decision**: `ensemble score >= 0.6722` → `AFP`, otherwise `non-AFP` 
+- **Decision**:  `AFP` if score ≥ 0.6722, otherwise `non-AFP` 
 - **Hyperparameters**: tuned with Optuna (3-fold cross-validation AUROC), `class_weight="balanced"`, seed 84
 - **Evaluation**: external test set of 164 positives + 164 negatives
 
