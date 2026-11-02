@@ -11,18 +11,16 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-MODEL_ROOT = ROOT / "mode"
+MODEL_PATH = ROOT / "model" / "SVM_implicit_ensemble_models.joblib"
 
 
 def load_bundle(feature: str) -> dict:
-    path = MODEL_ROOT / feature / "SVM" / "model_bundle.joblib"
+    path = MODEL_PATH
     if not path.is_file():
         raise FileNotFoundError(f"SVM model bundle not found: {path}")
     bundle = joblib.load(path)
-    if not isinstance(bundle, dict) or not bundle.get("models") or not bundle.get("thresholds"):
+    if not isinstance(bundle, dict) or not bundle.get("models") or "ensemble_threshold" not in bundle:
         raise ValueError(f"Invalid model bundle: {path}")
-    if len(bundle["models"]) != len(bundle["thresholds"]):
-        raise ValueError("The model and threshold counts do not match")
     return bundle
 
 
@@ -87,9 +85,8 @@ def predict(input_path: Path, feature: str, id_column: str | None) -> pd.DataFra
         raise ValueError("Input features contain NaN or infinite values")
 
     probabilities = np.column_stack([model.predict_proba(matrix)[:, 1] for model in bundle["models"]])
-    thresholds = np.asarray(bundle["thresholds"], dtype=float)
     mean_probability = probabilities.mean(axis=1)
-    mean_threshold = float(thresholds.mean())
+    mean_threshold = float(bundle["ensemble_threshold"])
     return pd.DataFrame({
         "id": ids,
         "score": mean_probability,

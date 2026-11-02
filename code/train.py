@@ -191,5 +191,5 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
     if args.output is None:
-        args.output = Path(__file__).resolve().parents[1] / "mode" / args.feature / "SVM"
+        args.output = Path(__file__).resolve().parents[1] / "model" / args.feature / "SVM"
     train(args)
