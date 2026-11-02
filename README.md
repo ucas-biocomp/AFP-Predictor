@@ -49,15 +49,18 @@ pip install torch==2.9.1
 ### Prediction
 
 1. Extract ESM2 embeddings for your proteins (see [ESM2 Embeddings](#esm2-embeddings)).
-2. Predict:
+2. Run prediction on a single .pt file or a directory containing .pt files:
 
 ```bash
 python code/predict.py /path/to/embedding.pt --feature implicit    # single file
 python code/predict.py /path/to/embedding_dir --feature implicit   # folder of .pt files
 ```
 
-Prints `AFP` or `non-AFP` for each protein. Add `--output result.csv` to save
-`id`, `score`, `threshold` (0.6722) and `prediction`.
+By default, the script prints AFP or non-AFP for each protein. Add --output result.csv to save a CSV containing the protein ID, prediction score, decision threshold, and predicted label:
+```bash
+python code/predict.py /path/to/embedding_dir --feature implicit --output result.csv
+```
+CSV columns: id, score, threshold, and prediction.
 
 ### Training
 
